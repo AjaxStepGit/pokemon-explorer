@@ -118,3 +118,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  70% {
+    transform: translateY(-8px);
+  }
+}
+
+.trapezoid-bg {
+  clip-path: polygon(0 0, 100% 0%, 100% 80%, 0 100%);
+  background-color: rgba(23, 37, 84, 0.8);
+}

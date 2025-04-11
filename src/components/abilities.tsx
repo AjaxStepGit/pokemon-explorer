@@ -1,19 +1,36 @@
+import * as motion from "motion/react-client";
+
+function Detail({ label, info }: { label: string; info: string }) {
+  return (
+    <div className="flex flex-col gap-2">
+      <span className="text-xs text-white font-bold capitalize">{label}</span>
+      <h2 className="text-md text-white font-semibold capitalize">{info}</h2>
+    </div>
+  );
+}
+
 export default function Abilities({ pokemon }: { pokemon: any }) {
   return (
-    <div className="space-y-4">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+        x: 0,
+      }}
+      transition={{ duration: 1, ease: "anticipate" }}
+      className="flex min-w-3xl gap-2 p-3"
+    >
       {pokemon.abilities.map((ability: any) => (
         <div
           key={ability.ability.name}
-          className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg"
+          className="flex text-md text-white h-fit w-full justify-between"
         >
-          <h3 className="font-medium capitalize mb-1">
-            {ability.ability.name.replace("-", " ")}
-            {ability.is_hidden && (
-              <span className="ml-2 text-xs text-gray-500">(Hidden)</span>
-            )}
-          </h3>
+          <Detail
+            label={ability?.is_hidden ? "Hidden" : "Ability"}
+            info={ability.ability.name.replace("-", " ")}
+          />
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 }
