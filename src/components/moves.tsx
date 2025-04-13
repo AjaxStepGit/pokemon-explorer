@@ -10,7 +10,7 @@ export default function MovesSection({ pokemon }: { pokemon: any }) {
         x: 0,
       }}
       transition={{ duration: 1, ease: "anticipate" }}
-      className="flex gap-3 w-full min-w-3xl mt-4"
+      className="flex gap-3 w-full min-w-3xl mt-4 "
     >
       <div className="flex gap-3 flex-wrap h-fit items-center">
         {pokemon.moves.slice(0, 50).map((move: any) => (

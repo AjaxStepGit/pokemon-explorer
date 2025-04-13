@@ -43,8 +43,12 @@ export default async function PokemonDetails({
   const bgColor = primaryType ? color : typeColors.default;
 
   return (
-    <div
-      className={`flex relative flex-col h-screen p-8  items-center w-full overflow-clip`}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ ease: "linear" }}
+      exit={{ opacity: 0 }}
+      className={`flex relative flex-col h-screen p-8  items-center w-full overflow-clip pokemon-scrollbar`}
       style={{ backgroundColor: bgColor }}
     >
       <Image
@@ -111,6 +115,6 @@ export default async function PokemonDetails({
           POWERED by : <Link href={"/https://pokeapi.co/"}>Poke Api</Link>
         </h1>
       </div>
-    </div>
+    </motion.div>
   );
 }

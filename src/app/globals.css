@@ -110,15 +110,6 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 @keyframes float {
   0%,
   100% {
@@ -133,4 +124,44 @@
 .trapezoid-bg {
   clip-path: polygon(0 0, 100% 0%, 100% 80%, 0 100%);
   background-color: rgba(23, 37, 84, 0.8);
+}
+
+.pokemon-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #ff0000 #ffffff;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: auto;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 2px soild #1a1a1a;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    border-radius: 4px;
+    scale: 1.1;
+    background: #cc0000;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: #000000; /* Black (Poké Ball center) */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
